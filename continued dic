@@ -1,0 +1,125 @@
+#Iterating in Sorted Order - Sorted by Keys
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+for key in sorted(incomes):
+	print(key, '->', incomes[key])
+print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+
+
+
+#Iterating in Sorted Order - Sorted by Values
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+def by_value(item):
+	return item[1]
+for key, value in sorted(incomes.items(), key=by_value):
+	print(key, '->', value)
+print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+
+
+#Iterating in Sorted Order - Sorted by Values
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+for value in sorted(incomes.values()):
+	print(value)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+#Iterating in Sorted Order - Reversed
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+for key in sorted(incomes, reverse=True):
+	print(key, '->', incomes[key])
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+#Iterating Destructively with .popitem()
+a_dict = {'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}
+while True:
+    try:
+    
+    
+    output:
+apple -> 560.0
+banana -> 500.0
+orange -> 350.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+orange -> 350.0
+banana -> 500.0
+apple -> 560.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+350.0
+500.0
+560.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+orange -> 350.0
+banana -> 500.0
+apple -> 560.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Dictionary length: 3
+('pet', 'dog') removed
+Dictionary length: 2
+('fruit', 'apple') removed
+Dictionary length: 1
+('color', 'blue') removed
+Dictionary length: 0
+The dictionary has no item now...
+^^^^^^^^^^^^^^^^^^^^^^^^^
+{'apple': 0.38, 'orange': 0.33, 'banana': 0.24}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+['orange', 'banana']
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+{'pepper': 0.2, 'onion': 0.55, 'apple': 0.4, 'orange': 0.35}
+pepper -> 0.2
+onion -> 0.55
+apple -> 0.4
+orange -> 0.35
+******************************
+{'pepper': 0.25, 'onion': 0.55, 'apple': 0.4, 'orange': 0.35}
+
+Process finished with exit code 0
+
+        print('Dictionary length:', len(a_dict))
+        item = a_dict.popitem()
+        # Do something with item here...
+        print(item, "removed")
+    except KeyError:
+        print('The dictionary has no item now...')
+        break
+print('^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+#Use of map()
+prices = {'apple': 0.40, 'orange': 0.35, 'banana': 0.25}
+def discount(current_price):
+	return (current_price[0], round(current_price[1] * 0.95, 2))
+new_prices = dict(map(discount, prices.items()))
+print(new_prices )
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+
+#Use of filter()
+prices = {'apple': 0.40, 'orange': 0.35, 'banana': 0.25}
+def  has_low_price(price):
+	return prices[price] < 0.4
+low_price = list(filter(has_low_price, prices.keys()))
+print(low_price)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+
+#Using the Dictionary Unpacking Operator (**)
+fruit_prices = {'apple': 0.40, 'orange': 0.35}
+vegetable_prices = {'pepper': 0.20, 'onion': 0.55}
+x = {**vegetable_prices, **fruit_prices}
+print(x)
+# You can use this feature to iterate through multiple dictionaries
+for k, v in {**vegetable_prices, **fruit_prices}.items():
+	print(k, '->', v)
+print("******************************")
+
+
+
+#Using the Dictionary Unpacking Operator (**)
+vegetable_prices = {'pepper': 0.20, 'onion': 0.55}
+fruit_prices = {'apple': 0.40, 'orange': 0.35, 'pepper': .25}
+x= {**vegetable_prices, **fruit_prices}
+print(x)
+
