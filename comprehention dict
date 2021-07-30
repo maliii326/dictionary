@@ -1,0 +1,62 @@
+#keys into values
+objects = ['blue', 'apple', 'dog']
+categories = ['color', 'fruit', 'pet']
+a_dict = {key: value for key, value in zip(categories, objects)}
+print(a_dict)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+#fillter
+a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+new_dict = {value: key for key, value in a_dict.items()}
+print(new_dict)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+#calculation revisited
+a_dict = {'one': 1, 'two': 2, 'thee': 3, 'four': 4}
+new_dict = {k: v for k, v in a_dict.items() if v <= 2}
+print(new_dict )
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+total_income = 0.0
+total_income = sum([value for value in incomes.values()])
+print(total_income)
+
+
+#generator
+total_income = sum(value for value in incomes.values())
+print(total_income)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+#removing specific items
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+non_citric = {k: incomes[k] for k in incomes.keys() - {'orange'}}
+print(non_citric)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+
+#sorting a dictionary
+incomes = {'apple': 560.0, 'orange': 350.0, 'banana': 500.0}
+sorted_income = {k: incomes[k] for k in sorted(incomes)}
+print(sorted_income)
+print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+output:
+{'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+{1: 'one', 2: 'two', 3: 'thee', 4: 'four'}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+{'one': 1, 'two': 2}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1410.0
+1410.0
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+{'banana': 500.0, 'apple': 560.0}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+{'apple': 560.0, 'banana': 500.0, 'orange': 350.0}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Process finished with exit code 0
